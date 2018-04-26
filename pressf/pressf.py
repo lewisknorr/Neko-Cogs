@@ -31,7 +31,7 @@ class PressF:
         
             answer = message.content
         
-        msg = "Everyone, let's pay respects to **{}**! Press f reaction on this message to pay respects.".format(answer)
+        msg = "@everyone let's pay respects to **{}**! Press f reaction on this message to pay respects.".format(answer)
 
         message = await self.bot.send_message(channel, msg)
 
@@ -42,10 +42,10 @@ class PressF:
         except:
             self.messagem[channel.id] = []
             react = False
-            await self.bot.edit_message(message, "Everyone, let's pay respects to **{}**! Type `f` reaction on the this message to pay respects.".format(answer))
+            await self.bot.edit_message(message, "@everyone let's pay respects to **{}**! Type `f` reaction on the this message to pay respects.".format(answer))
             await self.bot.wait_for_message(channel=ctx.message.channel)
 
-        await asyncio.sleep(120)
+        await asyncio.sleep(300)
         await self.bot.delete_message(message)
         if react:
             amount = len(self.messager[channel.id])
